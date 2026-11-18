@@ -558,3 +558,11 @@ main.app { margin-top: var(--nav-h); }
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; animation: none !important; }
 }
+
+/* Transición entre páginas de sidios.cl (fundido de entrada y salida) */
+@keyframes page-in { from { opacity: 0; } }
+
+@media (prefers-reduced-motion: no-preference) {
+  body { animation: page-in 0.45s cubic-bezier(0.28, 0.11, 0.32, 1) backwards; }
+  html.is-leaving body { opacity: 0; transition: opacity 0.22s ease; }
+}
